@@ -1,3 +1,7 @@
+
+
+
+
 hard_hash[5] = Hash.new("Hit!")
 hard_hash[6] = Hash.new("Hit!")
 hard_hash[7] = Hash.new("Hit!")
@@ -77,59 +81,57 @@ soft_hash[19][6] = "Double Down Baby!"
 soft_hash[20] = Hash.new("Stay")
 soft_hash[21] = Hash.new("Stay")
 pair_hash[2,2] = Hash.new("Split")
-pair_hash[2,2][8] = "Hit!"
-pair_hash[3,3] = Hash.new("Split")
-pair_hash[3,3][9] = "Hit!"
-pair_hash[3,3][10] = "Hit!"
-pair_hash[3,3]["A"] = "Hit!"
-pair_hash[4,4] = Hash.new("Hit!")
-pair_hash[4,4][4] = "Split"
-pair_hash[4,4][5] = "Split"
-pair_hash[4,4][6] = "Split"
-pair_hash[5,5] = Hash.new("Double Down Baby!")
-pair_hash[5,5][10] = "Hit"
-pair_hash[5,5]["A"] = "Hit"
-pair_hash[6,6] = Hash.new("Split")
-pair_hash[6,6][8] = "Hit!"
-pair_hash[6,6][9] = "Hit!"
-pair_hash[6,6][10] = "Hit!"
-pair_hash[6,6]["A"] = "Hit!"
-pair_hash[7,7] = Hash.new("Split")
-pair_hash[7,7][9] = "Hit!"
-pair_hash[7,7][10] = "Stay"
-pair_hash[7,7]["A"] = "Hit!"
-pair_hash[8,8] = Hash.new("Split")
-pair_hash[9,9] = Hash.new("Split")
-pair_hash[9,9][7] = "Stay"
-pair_hash[9,9][10] = "Stay"
-pair_hash[9,9]["A"] = "Stay"
-pair_hash[10,10] = Hash.new("Stay")
+pair_hash[2][8] = "Hit!"
+pair_hash[3] = Hash.new("Split")
+pair_hash[3][9] = "Hit!"
+pair_hash[3][10] = "Hit!"
+pair_hash[3]["A"] = "Hit!"
+pair_hash[4] = Hash.new("Hit!")
+pair_hash[4][4] = "Split"
+pair_hash[4][5] = "Split"
+pair_hash[4][6] = "Split"
+pair_hash[5] = Hash.new("Double Down Baby!")
+pair_hash[5][10] = "Hit"
+pair_hash[5]["A"] = "Hit"
+pair_hash[6] = Hash.new("Split")
+pair_hash[6][8] = "Hit!"
+pair_hash[6][9] = "Hit!"
+pair_hash[6][10] = "Hit!"
+pair_hash[6]["A"] = "Hit!"
+pair_hash[7] = Hash.new("Split")
+pair_hash[7][9] = "Hit!"
+pair_hash[7][10] = "Stay"
+pair_hash[7]["A"] = "Hit!"
+pair_hash[8] = Hash.new("Split")
+pair_hash[9] = Hash.new("Split")
+pair_hash[9][7] = "Stay"
+pair_hash[9][10] = "Stay"
+pair_hash[9]["A"] = "Stay"
+pair_hash[10] = Hash.new("Stay")
 pair_hash["A","A"] = Hash.new("Split")
+
+hand_sum = 0
 
 loop do
   puts "Enter the value of your first card."
   first_card = gets.chomp
   puts "Enter the value of your second card."
   second_card = gets.chomp
-  puts "Enter the up card."
+  puts "Enter the Dealer's up card."
   up_card = gets.chomp
-  if first_card || second_card || up_card == "A"
-    first_card || second_card || up_card == "A"
-    first_card && second_card && up_card = 11.to_i
-end
-  puts "Your hand is #{first_card.to_i + second_card.to_i}"
-  puts "Dealer card is #{up_card}."
+  if first_card == "A" || second_card == "A" || up_card == "A"
+     first_card = second_card = up_card = 11.to_i
+  end
 
-  if first_card || second_card == 11.to_i
-    first_card || second_card == "A"
-    first_card && second_card = 11.to_i
-    puts "Thats a soft hand. What would you like to do?"
-    answer = gets.chomp.to_i
+  puts "You're sitting on #{hand_sum}."
+  if
+    hand_sum.include?("A")
+    puts [soft_hash][hand_sum][up_card]
+  elsif first_card == second_card
+    puts [pair_hash][hand_sum][up_card]
+  else
+    puts [hard_hash][hand_sum][up_card]
+  end
   break
-end
-  if first_card == second_card
-    puts "Thats a pair. What would you like to do?"
-    answer = gets.chomp
-break
-end
+  hand_sum = first_card.to_i + second_card.to_i
 end
