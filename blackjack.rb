@@ -111,7 +111,7 @@ pair_hash["A"] = Hash.new("Split")
 
 hand_sum = 0
 
-loop do
+
   puts "Enter the value of your first card."
   first_card = gets.chomp
   puts "Enter the value of your second card."
@@ -127,8 +127,8 @@ loop do
   if up_card == "A"
      up_card = 11.to_i
   end
-  hand_sum = first_card.to_i + second_card.to_i
-  puts "You're sitting on #{hand_sum}."
+    hand_sum = first_card.to_i + second_card.to_i
+    puts "You're sitting on #{hand_sum}."
   if
     first_card == "A" || second_card == "A"
     puts soft_hash[hand_sum][up_card]
@@ -137,6 +137,4 @@ loop do
   else
     puts hard_hash[hand_sum][up_card]
   end
-  break
-
-end
+  
