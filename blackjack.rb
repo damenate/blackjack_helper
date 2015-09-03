@@ -1,4 +1,5 @@
 hard_hash = Hash.new()
+
 hard_hash[5] = Hash.new("Hit!")
 hard_hash[6] = Hash.new("Hit!")
 hard_hash[7] = Hash.new("Hit!")
@@ -44,7 +45,9 @@ hard_hash[18] = Hash.new("Stay")
 hard_hash[19] = Hash.new("Stay")
 hard_hash[20] = Hash.new("Stay")
 hard_hash[21] = Hash.new("Stay")
+
 soft_hash = Hash.new()
+
 soft_hash[13] = Hash.new("Hit!")
 soft_hash[13][4] = "Double Down Baby!"
 soft_hash[13][5] = "Double Down Baby!"
@@ -78,36 +81,38 @@ soft_hash[19] = Hash.new("Stay")
 soft_hash[19][6] = "Double Down Baby!"
 soft_hash[20] = Hash.new("Stay")
 soft_hash[21] = Hash.new("Stay")
+
 pair_hash = Hash.new()
-pair_hash[2] = Hash.new("Split")
-pair_hash[2][8] = "Hit!"
-pair_hash[3] = Hash.new("Split")
-pair_hash[3][9] = "Hit!"
-pair_hash[3][10] = "Hit!"
-pair_hash[3]["A"] = "Hit!"
-pair_hash[4] = Hash.new("Hit!")
-pair_hash[4][4] = "Split"
-pair_hash[4][5] = "Split"
-pair_hash[4][6] = "Split"
-pair_hash[5] = Hash.new("Double Down Baby!")
-pair_hash[5][10] = "Hit"
-pair_hash[5]["A"] = "Hit"
+
+pair_hash[4] = Hash.new("Split")
+pair_hash[4][8] = "Hit!"
 pair_hash[6] = Hash.new("Split")
-pair_hash[6][8] = "Hit!"
 pair_hash[6][9] = "Hit!"
 pair_hash[6][10] = "Hit!"
-pair_hash[6]["A"] = "Hit!"
-pair_hash[7] = Hash.new("Split")
-pair_hash[7][9] = "Hit!"
-pair_hash[7][10] = "Stay"
-pair_hash[7]["A"] = "Hit!"
-pair_hash[8] = Hash.new("Split")
-pair_hash[9] = Hash.new("Split")
-pair_hash[9][7] = "Stay"
-pair_hash[9][10] = "Stay"
-pair_hash[9]["A"] = "Stay"
-pair_hash[10] = Hash.new("Stay")
-pair_hash["A"] = Hash.new("Split")
+pair_hash[6][22] = "Hit!"
+pair_hash[8] = Hash.new("Hit!")
+pair_hash[8][4] = "Split"
+pair_hash[8][5] = "Split"
+pair_hash[8][6] = "Split"
+pair_hash[10] = Hash.new("Double Down Baby!")
+pair_hash[10][10] = "Hit"
+pair_hash[10][22] = "Hit"
+pair_hash[12] = Hash.new("Split")
+pair_hash[12][8] = "Hit!"
+pair_hash[12][9] = "Hit!"
+pair_hash[12][10] = "Hit!"
+pair_hash[12][22] = "Hit!"
+pair_hash[14] = Hash.new("Split")
+pair_hash[14][9] = "Hit!"
+pair_hash[14][10] = "Stay"
+pair_hash[14][22] = "Hit!"
+pair_hash[16] = Hash.new("Split")
+pair_hash[18] = Hash.new("Split")
+pair_hash[18][7] = "Stay"
+pair_hash[18][10] = "Stay"
+pair_hash[18][22] = "Stay"
+pair_hash[20] = Hash.new("Stay")
+pair_hash[22] = Hash.new("Split")
 
 hand_sum = 0
 
@@ -127,8 +132,8 @@ hand_sum = 0
   if up_card == "A"
      up_card = 11.to_i
   end
-    hand_sum = first_card.to_i + second_card.to_i
-    puts "You're sitting on #{hand_sum}."
+  hand_sum = first_card.to_i + second_card.to_i
+  puts "You're sitting on #{hand_sum}."
   if
     first_card == "A" || second_card == "A"
     puts soft_hash[hand_sum][up_card]
@@ -137,4 +142,3 @@ hand_sum = 0
   else
     puts hard_hash[hand_sum][up_card]
   end
-  
