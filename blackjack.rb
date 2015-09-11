@@ -1,3 +1,7 @@
+def convert(card)
+  card == "A" ? 11 : card
+end
+
 hard_hash = Hash.new()
 
 hard_hash[5] = Hash.new("Hit!")
@@ -116,29 +120,26 @@ pair_hash[22] = Hash.new("Split")
 
 hand_sum = 0
 
+puts "Enter the value of your first card."
+first_card = gets.chomp
+puts "Enter the value of your second card."
+second_card = gets.chomp
+puts "Enter the Dealer's up card."
+up_card = gets.chomp
 
-  puts "Enter the value of your first card."
-  first_card = gets.chomp
-  puts "Enter the value of your second card."
-  second_card = gets.chomp
-  puts "Enter the Dealer's up card."
-  up_card = gets.chomp
-  if first_card == "A"
-     first_card = 11.to_i
-  end
-  if second_card == "A"
-     second_card = 11.to_i
-  end
-  if up_card == "A"
-     up_card = 11.to_i
-  end
-  hand_sum = first_card.to_i + second_card.to_i
-  puts "You're sitting on #{hand_sum}."
-  if
-    first_card == "A" || second_card == "A"
-    puts soft_hash[hand_sum][up_card]
-  elsif first_card == second_card
-    puts pair_hash[hand_sum][up_card]
-  else
-    puts hard_hash[hand_sum][up_card]
-  end
+first_card = convert(first_card)
+second_card = convert(second_card)
+up_card = convert(up_card)
+
+hand_sum = first_card.to_i + second_card.to_i
+puts "You're currently sitting on #{hand_sum}."
+
+if
+  first_card == second_card
+  puts pair_hash[hand_sum][up_card]
+elsif
+  first_card == 11 || second_card == 11
+  puts soft_hash[hand_sum][up_card]
+else
+  puts hard_hash[hand_sum][up_card]
+end
