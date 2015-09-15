@@ -138,8 +138,8 @@ if
   first_card == second_card
   puts pair_hash[hand_sum][up_card]
 elsif
+  puts hard_hash[hand_sum][up_card]  
+else
   first_card == 11 || second_card == 11
   puts soft_hash[hand_sum][up_card]
-else
-  puts hard_hash[hand_sum][up_card]
 end
