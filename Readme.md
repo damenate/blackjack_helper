@@ -8,4 +8,3 @@ on these three cards.
 I would highly advise against bringing this program into a casino and using it for
 monetary gain. This program is for fun and practice. I hold no responsibility if you
 choose to use this ingenious code for your personal gain.  
-# blackjack_advisor.rb
